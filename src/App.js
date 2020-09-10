@@ -31,8 +31,11 @@ class App extends Component {
     // now that we have an array of words, we can map over the array and access each word
     splitUserInput.map(currentWord => {
       // ACTION ITEM: use 'currentWord' as a starting point for your code
-
-
+        if(currentWord.value === "a" || currentWord.value === "e" || currentWord.value === "i" || currentWord.value === "o" || currentWord.value === "u") {
+        return currentWord.join("ay")
+        }
+      
+      console.log(currentWord)
       // your code here!
 
       // Remember: console.log is your friend :)
