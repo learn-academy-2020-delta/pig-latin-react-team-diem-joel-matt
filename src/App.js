@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       // 'phrase' is the text entered by the user - right now there are some test words hard coded to make the process of testing your code a bit faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: 'every through yummy squeal queen fry',
+      phrase: 'every',
       // 'phraseTranslated' is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the 'submit' button
       phraseTranslated: 'This is where your translated sentence will appear.'
     }
@@ -29,20 +29,31 @@ class App extends Component {
     let splitUserInput = userInput.toLowerCase().split(" ")
 
     // now that we have an array of words, we can map over the array and access each word
+    //charAt()
     splitUserInput.map(currentWord => {
       // ACTION ITEM: use 'currentWord' as a starting point for your code
-        if(currentWord.value === "a" || currentWord.value === "e" || currentWord.value === "i" || currentWord.value === "o" || currentWord.value === "u") {
-        return currentWord.join("ay")
-        }
-      
-      console.log(currentWord)
+      let arrayLetters = []
+      let consonants = []
+      arrayLetters = currentWord.split("")
+      //refactor to .map() later 
+      for (let i = 0; i<arrayLetters.length; i++ ) {
+        if (arrayLetters[i] !== "a" || arrayLetters[i] !== "e" || arrayLetters[i] !== "i" || arrayLetters[i] !== "o" || arrayLetters[i] !== "u") {
+          let tempLetters = arrayLetters.shift()
+          consonants.push(tempLetters)
+          console.log(arrayLetters)
+      } else if (currentWord.charAt(0) === "a" || currentWord.charAt(0) === "e" || currentWord.charAt(0)  === "i" || currentWord.charAt(0)  === "o" || currentWord.charAt(0)  === "u") {
+        let translatedWord = currentWord + "ay"
+        console.log("this is our translated word", translatedWord)
+        return translatedWordsArray.push(translatedWord)
+      }
+    }
       // your code here!
 
       // Remember: console.log is your friend :)
 
 
       // ACTION ITEM: change the value of currentWord in the push method to the name of whatever variable you made containing your Pig Latin'd word
-      return translatedWordsArray.push(currentWord)
+      return translatedWordsArray
     })
 
 
