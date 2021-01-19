@@ -35,13 +35,13 @@ class App extends Component {
       let arrayLetters = []
       let consonants = []
       arrayLetters = currentWord.split("")
-      //refactor to .map() later 
+      // refactor to .map() later 
       for (let i = 0; i<arrayLetters.length; i++ ) {
         if (arrayLetters[i] !== "a" || arrayLetters[i] !== "e" || arrayLetters[i] !== "i" || arrayLetters[i] !== "o" || arrayLetters[i] !== "u") {
           let tempLetters = arrayLetters.shift()
           consonants.push(tempLetters)
           console.log(arrayLetters)
-      } else if (currentWord.charAt(0) === "a" || currentWord.charAt(0) === "e" || currentWord.charAt(0)  === "i" || currentWord.charAt(0)  === "o" || currentWord.charAt(0)  === "u") {
+        } else if (currentWord.charAt(0) === "a" || currentWord.charAt(0) === "e" || currentWord.charAt(0)  === "i" || currentWord.charAt(0)  === "o" || currentWord.charAt(0)  === "u") {
         let translatedWord = currentWord + "ay"
         console.log("this is our translated word", translatedWord)
         return translatedWordsArray.push(translatedWord)
